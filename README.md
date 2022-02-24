@@ -12,6 +12,7 @@ It consists 3 parts:
 2) Migration of datas -> migrate.py
 3) Migration datas to initial version -> rollback.py
 
+Use your command line and mention the location of directory on command line.
 
 1. First command : python create_db.py   -> creates tables and columns 
 2. Second command : python migrate.py    -> migrates tables and columns 
