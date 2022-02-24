@@ -3,7 +3,7 @@ import psycopg2
 cursor = None
 db = None
 try:
-    db = psycopg2.connect(dbname="postgres", user="postgres", password="elcin123", host="127.0.0.1", port=5432)
+    db = psycopg2.connect(dbname="postgres", user="postgres", password="password123", host="127.0.0.1", port=5432)
 
     # TASK 1
     query="ALTER TABLE students RENAME COLUMN student_id TO st_id"
@@ -15,18 +15,18 @@ try:
     # TASK 3
     query3 = "drop table interests "  # task 3 (changing name)
     query4= """ 
-create table interests (student_id int, interest varchar(15));
-insert into interests values (1, 'Tennis');
-insert into interests values (1, 'Literature');
-insert into interests values (1, 'Math');
-insert into interests values (2, 'Tennis');
-insert into interests values (3, 'Math');
-insert into interests values (3, 'Music');
-insert into interests values (2, 'Football');
-insert into interests values (1, 'Chemistry');
-insert into interests values (3, 'Chess');
+create table interest (student_id int, interest varchar(15));
+insert into interest values (1, 'Tennis');
+insert into interest values (1, 'Literature');
+insert into interest values (1, 'Math');
+insert into interest values (2, 'Tennis');
+insert into interest values (3, 'Math');
+insert into interest values (3, 'Music');
+insert into interest values (2, 'Football');
+insert into interest values (1, 'Chemistry');
+insert into interest values (3, 'Chess');
 """
-    query5 = "ALTER TABLE interests RENAME COLUMN interests TO interest"
+
 
 
     cursor = db.cursor()
@@ -36,7 +36,7 @@ insert into interests values (3, 'Chess');
 
     cursor.execute(query3)
     cursor.execute(query4)
-    cursor.execute(query5)
+
 
     db.commit()
     print("Rollback successfully complicated")
@@ -48,9 +48,4 @@ finally:
         cursor.close()
     if db is not None:
         db.close()
-
-
-
-
-
 
